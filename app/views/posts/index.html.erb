@@ -12,6 +12,34 @@
       <img class="img-fluid" src="<%= post["image"] %>" class="w-full">
       <p><%= post["body"] %></p>
       
+       <% if @current_user %>
+
+        <h3> Comments </h3>
+        <% @comments = Comment.where({"post_id" => post["id"]}) %>
+        
+        <% if @comments %>
+          <ul>
+            <% for comment in @comments %>
+              <li>
+                <%= comment["comment"] %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+              
+
+        <a href= "/comments/new?post_id=<%=post["id"]%>"> New Comment </a>
+
+       
+
+        <% else %>
+
+        Login to see comments
+
+
+      <% end %>
+
+
     </div>
   <% end %>
 </div>

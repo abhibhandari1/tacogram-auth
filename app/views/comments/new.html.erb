@@ -1,0 +1,12 @@
+
+<%= form_with :model => @comment do |form| %>
+          <%= form.hidden_field "post_id" %>
+          <p>
+            <%= @current_user["first_name"] %> <%= @current_user["last_name"] %>
+          </p>
+          <p>
+            <%= form.label "comment" %>
+            <%= form.text_area "comment" %>
+          </p>
+          <%= form.submit %>
+<% end %>
